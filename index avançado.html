@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style avançado.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;700;900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <title>Amigo Secreto</title>
+</head>
+
+<body>
+    <main class="main-content">
+        <header class="header-banner">
+            <h1 class="main-title">Amigo Secreto</h1>
+            <img src="assets/amigo-secreto.png" alt="Imagem representativa de amigo secreto">
+        </header>
+
+        <main class="main-content">
+            <header class="header-banner">
+                <h3 id="mensagem" class="main-title"></h3>
+            </header>
+        
+        <section class="input-section">
+            <h2 class="section-title">Faça Uma Lista para Sorteio!</h2>
+            <div class="input-wrapper">
+                <input type="text" id="amigo" class="input-name" placeholder="Adicione os nomes aqui um a um">
+                <button class="button-add" onclick="adicionarAmigo()">Adicionar</button>
+            </div>
+           
+            <ul id="listaAmigos" class="name-list" aria-labelledby="listaAmigos" role="list"></ul>
+            <ul id="resultado" class="result-list" aria-live="polite"></ul>
+
+            <div class="button-container">
+                <button class="button-draw" onclick="sortearAmigo()" aria-label="Sortear amigo secreto">
+                    <img src="assets/play_circle_outline.png" alt="Ícone para sortear">
+                    Iniciar Sorteio
+                </button>
+                <div>
+                    <div class="button-container3">
+                        <button class="button-draw" onclick="irParaModoBasico()" aria-label="Mudar modo de sorteio">
+                            <img src="assets/play_circle_outline.png" alt="Ícone para mudar modo de sorteio">
+                            Modo Básico
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+
+           <!-- Botão para revelar texto -->
+<div class="button-container" id="containerRevelar" style="display:none;"> 
+    <button class="button-revelar" onclick="revelarTexto()" aria-label="Revelar texto">
+        Revelar Amigo Secreto
+    </button>
+</div>
+
+<!-- Texto que será revelado (começa oculto) -->
+<div id="textoRevelado" style="display:none;">
+    <h4>Este é um texto que foi revelado! Você pode editar, se desejar.</h4>
+</div>
+
+<!-- Novo botão "Próximo Jogar" (começa oculto) -->
+<div class="button-container" id="containerProximo" style="display:none;">
+    <button class="button-proximo-jogar" onclick="revelarProximoJogar()" aria-label="Revelar próximo texto">
+        Próximo Jogar
+    </button>
+</div>
+
+<!-- Texto do "Próximo Jogar" (começa oculto) -->
+<div id="proximoJogar" style="display:none;">
+    <h5>Texto do próximo jogo revelado! Continue jogando.</h>
+</div>
+<!-- Novo botão "Novo Sorteio" (começa oculto) -->
+<div class="button-container" id="containerNovoSorteio" style="display:none;">
+    <button class="button-novo-sorteio" onclick="novoSorteio()" aria-label="Novo Sorteio">
+        Novo Sorteio
+    </button>
+</div>
+            
+        </section>
+
+        <script>
+            function irParaModoBasico() {
+                window.location.href = "index.html"; // Redireciona para o arquivo index.html
+            }
+        </script>
+        
+    </main>
+
+    <script src="app1.js" defer></script>
+    <script src="confetti.js"></script>
+</body>
+</html>

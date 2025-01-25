@@ -1,0 +1,438 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    background-size: 400% 400%;
+    animation: gradientAnimation 6s ease infinite;
+    color: var(--color-text);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+:root {
+    --color-primary: #4B69FD;
+    --color-secondary: #FFF9EB;
+    --color-tertiary: #C4C4C4;
+    --color-button: #fe652b;
+    --color-button-hover: #e55720;
+    --color-text: #444444;
+    --color-white: #FFFFFF;
+}
+
+/* Main Content ocupa a tela inteira */
+.main-content {
+    width: 100%;
+    max-width: 900px;
+    background: var(--color-white);
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 1.5s ease;
+    margin: 20px;
+    transform: scale(0.98);
+    transition: transform 0.3s ease;
+}
+
+.main-content:hover {
+    transform: scale(1);
+}
+
+/* Cabeçalho */
+.header-banner {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.main-title {
+    font-size: 2.5rem;
+    font-weight: 900;
+    background: linear-gradient(10deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: colorPulse 3s infinite;
+}
+
+.header-banner img {
+    width: 120px;
+    margin-top: 10px;
+    animation: bounce 2s infinite;
+}
+
+/* Seção de entrada de texto */
+.input-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.input-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.input-name {
+    padding: 10px;
+    border: 2px solid var(--color-primary);
+    border-radius: 6px;
+    width: 100%;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    max-width: 400px;
+}
+
+.input-name:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0px 0px 10px rgba(75, 105, 253, 0.5);
+}
+
+.button-add {
+    background: var(--color-button);
+    color: var(--color-white);
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s ease;
+}
+
+.button-add:hover {
+    background: var(--color-button-hover);
+    transform: scale(1.1);
+    box-shadow: 0px 4px 12px rgba(255, 101, 43, 0.3);
+}
+
+/* Lista de amigos */
+.name-list,
+.result-list {
+    list-style: none;
+    margin: 20px 0;
+    padding: 0;
+    width: 100%;
+    max-width: 600px;
+}
+
+.name-list li {
+    background: var(--color-primary);
+    color: var(--color-white);
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 6px;
+    animation: slideIn 0.5s ease forwards;
+    transition: transform 0.2s ease;
+}
+
+.name-list li:hover {
+    transform: translateX(10px);
+}
+
+/* Botões */
+.button-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+.button-draw,
+.button-revelar,
+.button-proximo-jogar {
+    background: var(--color-secondary);
+    color: var(--color-text);
+    padding: 15px 30px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s, box-shadow 0.3s ease;
+}
+
+.button-draw:hover,
+.button-revelar:hover,
+.button-proximo-jogar:hover {
+    background: var(--color-primary);
+    color: var(--color-white);
+    transform: scale(1.1);
+    box-shadow: 0px 4px 15px rgba(75, 105, 253, 0.3);
+}
+
+/* Texto revelado */
+#textoRevelado {
+    margin-top: 20px;
+    padding: 10px;
+    background: rgba(75, 105, 253, 0.2);
+    border: 2px dashed var(--color-primary);
+    border-radius: 8px;
+    font-size: 1.2rem;
+    animation: fadeIn 1s ease forwards;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Botão "Próximo Jogar" */
+#containerProximo {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 2rem;
+    }
+
+    .input-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .input-name {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .button-container {
+        flex-direction: column;
+    }
+
+    .button-draw,
+    .button-revelar,
+    .button-proximo-jogar {
+        width: 100%;
+    }
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes colorPulse {
+    0%, 100% {
+        color: #ff6b6b;
+    }
+    50% {
+        color: #ffe66d;
+    }
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+/* Estilo para a lista de amigos */
+.name-list,
+.result-list {
+    list-style: none;
+    margin: 20px auto;
+    padding: 0;
+    width: 100%;
+    max-width: 700px;
+    background: #f5f5f5; /* Cor de fundo mais suave */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Sombra intensa */
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.name-list:hover,
+.result-list:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15); /* Sombra mais intensa no hover */
+}
+
+/* Estilo para cada item na lista */
+.name-list li,
+.result-list li {
+    background: #fff;
+    color: #333;
+    padding: 15px 25px;
+    margin: 15px 0;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+    border-left: 6px solid transparent;
+    position: relative;
+}
+
+.name-list li:hover,
+.result-list li:hover {
+    background: #ff7a00; /* Cor vibrante de hover */
+    color: white;
+    transform: scale(1.03); /* Leve aumento no hover */
+    border-left-color: #ff5722; /* Destaque de borda à esquerda */
+}
+
+.name-list li .remove-button,
+.result-list li .remove-button {
+    background: #ff5722; /* Cor do botão de remoção */
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    border: none;
+    opacity: 0.8;
+}
+
+.name-list li .remove-button:hover,
+.result-list li .remove-button:hover {
+    background: #e64a19; /* Cor mais escura no hover */
+    transform: translateX(5px); /* Leve movimento para direita */
+    opacity: 1;
+}
+
+/* Estilo para a área de ações (se houver) */
+.name-list li .action-buttons,
+.result-list li .action-buttons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.name-list li .action-buttons button,
+.result-list li .action-buttons button {
+    background: #00bcd4; /* Cor vibrante dos botões */
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.name-list li .action-buttons button:hover,
+.result-list li .action-buttons button:hover {
+    background: #0097a7;
+    transform: translateY(-5px); /* Leve elevação no hover */
+}
+
+/* Adicionando ícones de ação (opcional) */
+.name-list li .action-buttons i,
+.result-list li .action-buttons i {
+    font-size: 1.3rem;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+.name-list li .action-buttons i:hover,
+.result-list li .action-buttons i:hover {
+    color: #f5f5f5; /* Cor clara ao passar o mouse */
+}
+
+/* Estilo para o texto do item */
+.name-list li .item-text,
+.result-list li .item-text {
+    flex-grow: 1;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: #444;
+    text-align: left;
+    transition: color 0.3s ease;
+}
+
+/* Detalhes adicionais para destacar o item */
+.name-list li .item-text:hover,
+.result-list li .item-text:hover {
+    color: #ff7a00; /* Cor vibrante ao passar o mouse no texto */
+}
+/* Adicionando o estilo para o botão de Novo Sorteio */
+#containerNovoSorteio {
+    display: none;
+    margin-top: 20px;
+    text-align: center;
+}
+
+#containerNovoSorteio button {
+    background-color: #4CAF50; /* Cor verde */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#containerNovoSorteio button:hover {
+    background-color: #45a049; /* Cor verde mais escura ao passar o mouse */
+}
+
+#containerNovoSorteio button:active {
+    background-color: #388e3c; /* Cor verde ainda mais escura quando pressionado */
+}
